@@ -1,0 +1,86 @@
+print(r'''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\ ` . "-._ /_______________|_______
+|                   | |o ;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.")
+print("There will be options in the window you should choose one."
+      "If you choose the correct one you will win,otherwise the game will over!!!")
+input("click any key to start the game")
+print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+print("STAGE 1")
+lr=input("where to go left or right?")
+if lr=="right":
+    print("FALL INTO A HOLE!")
+    print("GAME OVER !")
+    print("-_-")
+elif lr=="left":
+    print("STAGE 2")
+    print("you've come to a lake.There is an island in the middle of the lake. ")
+    sw=input("what to do swim or wait")
+
+    if sw=="swim":
+        print("Attacked by trout.")
+        print("GAME OVER !")
+        print("-_-")
+    elif sw=="wait":
+        print("STAGE 3")
+        print("You arrive at the island unharmed.")
+        print("There is a house with 3 door.")
+        print("one red,one yellow and one blue.")
+        co=input("which colour do you choose?")
+
+
+        if co=="red":
+            print("Burned by fire.")
+            print("GAME OVER !")
+            print("-_-")
+        elif co=="blue":
+                print("Eaten by beasts.")
+                print("GAME OVER !")
+                print("-_-")
+        elif co=="yellow":
+                print("*****************")
+                print("***  YOU WIN!  **")
+                print("*****************")
+                print("             ")
+                print("      /\    ")
+                print("     /**\   ")
+                print("    /*1**\  ")
+                print("   '------'   ")
+                print("      ||     ")
+                print("      ||      ")
+                print("   [======]      ")
+                print("              ")
+
+        else:
+            print("GAME OVER !")
+            print("-_-")
+    else:
+        print("GAME OVER !")
+        print("-_-")
+else:
+    print("GAME OVER !")
+    print("-_-")
+
+
+
+
