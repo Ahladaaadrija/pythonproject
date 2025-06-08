@@ -1,0 +1,101 @@
+import random
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+print("WELCOME TO STONE PAPER SCISSORR")
+print("********************************")
+print("Enter 0 for ROCK ,enter 1 for PAPER,enter 2 for scissors")
+point=0
+count=0
+target=int(input("targeting score"))
+
+while count<target:
+    count=count+1
+    user = int(input("What do you choose? (0 - Rock, 1 - Paper, 2 - Scissors): "))
+    print("--------------------------------------------------------------------------------------------")
+
+    if user == 0:
+        print(rock)
+
+    if user == 1:
+        print(paper)
+
+    if user == 2:
+        print(scissors)
+    print("COMPUTER CHOOSE:")
+    com = random.randint(0, 2)
+    if com == 0:
+        print(rock)
+
+    if com == 1:
+        print(paper)
+
+    if com == 2:
+        print(scissors)
+    print("--------------------------------------------------------------------------------------------")
+
+    if user == 0:
+        if com == 2:
+            print("YOU WIN")
+            point += 1
+        elif com == 0:
+            print("It's a draw!")
+            point = point
+        else:
+            print("YOU LOSS")
+
+    elif user == 1:
+        if com == 0:
+            print("YOU WIN")
+            point += 1
+        elif com == 1:
+            print("It's a draw!")
+            point = point
+        else:
+            print("YOU LOSS")
+
+    elif user == 2:
+        if com == 1:
+            print("YOU WIN")
+            point += 1
+        elif com == 2:
+            print("It's a draw!")
+            point = point
+        else:
+            print("YOU LOSS")
+
+
+
+
+print("THANK YOU FOR PLAYING")
+print(f"YOUR POINT IS {point}")
+if point<(target/2):
+    print("Try again you can score more!")
+else:
+    print("you played well!")
+
+
+
