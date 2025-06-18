@@ -1,0 +1,34 @@
+from art import logo
+print(logo)
+bid={}
+
+def findwinner(dictionary):
+    high=0
+    winner=""
+    for owner in dictionary:
+        amount=dictionary[owner]
+        if amount>high:
+            high=amount
+            winner=owner
+    print("------------------------------------------------")
+    print(f"The winner is {winner} with a bid of ${high}")
+
+continue_bidding="run"
+while continue_bidding=="run":
+    name = input("What is tour name?")
+    price = int(input("What is your bid?: $"))
+    bid[name] = price
+    moreuser = input("Are there any other bidders? Type 'yes or 'no'.\n").lower()
+    if moreuser == "yes":
+        continue_bidding = "run"
+        print("\n" * 10)
+    elif moreuser == "no":
+        continue_bidding = "stop"
+        findwinner(bid)
+
+
+
+
+
+
+
