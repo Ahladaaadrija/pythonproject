@@ -1,0 +1,56 @@
+from art import logo
+print(logo)
+def add(n1, n2):
+    return n1 + n2
+def sub(n1,n2):
+    return n1 - n2
+def div(n1,n2):
+    return n1/n2
+def multi(n1,n2):
+    return n1 * n2
+
+calculator=True
+shouldaccumulate=True
+
+while shouldaccumulate == True:
+    if calculator == True:
+        n1 = int(input("Enter the first number?"))
+    print('''
+            +
+            -
+            *
+            /
+            
+            ''')
+    operation = input("choose operation?")
+    n2 = int(input("Enter the second number?"))
+
+    if operation == "+":
+        result = add(n1, n2)
+    elif operation == "-":
+        result = sub(n1, n2)
+    elif operation == "/":
+        result = div(n1, n2)
+    elif operation == "*":
+        result = multi(n1, n2)
+
+    print(f"{n1} {operation} {n2} = {result}")
+    nextstep = input(f"print y to continue with {result},\n n to start a new calculation,\n s for stoping").lower()
+    if nextstep == "y":
+        n1 = result
+        calculator = False
+        shouldaccumulate = True
+    elif nextstep == "n":
+        calculator = True
+        shouldaccumulate = True
+    elif nextstep == "s":
+        calculator = False
+        shouldaccumulate = False
+        print("                       exited                           ")
+        print("________________________________________________________")
+
+
+
+
+
+
