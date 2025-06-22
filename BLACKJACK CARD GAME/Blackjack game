@@ -1,0 +1,76 @@
+import random
+from art import logo
+
+def card_choose():
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    return random.choice(cards)
+
+def calculate_sum(cards):
+    if sum(cards) > 21 and 11 in cards:
+        cards.remove(11)
+        cards.append(1)
+    return sum(cards)
+
+def check_winner(user_score, computer_score):
+    if user_score > 21:
+        return "You went over 21. You lose!"
+    elif computer_score > 21:
+        return "Computer went over 21. You win!"
+    elif user_score == computer_score:
+        return "It's a draw!"
+    elif user_score == 21:
+        return "You got a Blackjack! You win!"
+    elif computer_score == 21:
+        return "Computer got a Blackjack. You lose!"
+    elif user_score > computer_score:
+        return "You win!"
+    else:
+        return "Computer wins!"
+
+def play():
+    print(logo)
+    user = []
+    computer = []
+    is_game_over = False
+    hits = True
+
+    for _ in range(2):
+        user.append(card_choose())
+        computer.append(card_choose())
+
+    while not is_game_over:
+        user_score = calculate_sum(user)
+        computer_score = calculate_sum(computer)
+
+        print(f"Your cards: {user} | Current score: {user_score}")
+        print(f"Computer's first card: {computer[0]}")
+
+        if user_score == 21 or computer_score == 21 or user_score > 21:
+            is_game_over = True
+        else:
+            while hits:
+                hit = input("Do you want another card? (y/n): ").lower()
+                if hit == "y":
+                    user.append(card_choose())
+                    user_score = calculate_sum(user)
+                    print(f"Your cards: {user} Current score: {user_score}")
+                    if user_score == 21 or user_score > 21:
+                        hits = False
+                        is_game_over = True
+
+                elif hit == "n":
+                    hits = False
+                    is_game_over = True
+    while calculate_sum(computer) < 17:
+        print("Computer hits.")
+        computer.append(card_choose())
+
+    user_score = calculate_sum(user)
+    computer_score = calculate_sum(computer)
+
+    print(f"\nYour final hand: {user} | Final score: {user_score}")
+    print(f"Computer's final hand: {computer} | Final score: {computer_score}")
+    print(check_winner(user_score, computer_score))
+
+while input("Do you want to play a game of Blackjack? Type 'y' or 'n': ").lower() == "y":
+    play()
