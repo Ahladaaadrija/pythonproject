@@ -1,0 +1,45 @@
+from art import logo
+from art import vs
+from game_data import data
+import random
+
+def display(name):
+    ac_name=name["name"]
+    ac_disc=name["description"]
+    ac_con=name["country"]
+    return f"{ac_name}, a {ac_disc}, from {ac_con}"
+
+def compare():
+    if first_price>second_price:
+        return "a"
+    else:
+        return "b"
+score = 0
+game_should_continue = True
+second = random.choice(data)
+
+while game_should_continue == True:
+    print(logo)
+    first = second
+    print(f"Compare A:{display(first)}")
+    print(vs)
+    second = random.choice(data)
+    print(f"Compare B:{display(second)}")
+
+    first_price = first["follower_count"]
+    second_price = second["follower_count"]
+
+    guess = input("who has more followers?A/B : ").lower()
+
+    ans = compare()
+
+    if guess == ans:
+        score += 1
+        print(f"You're right! Current score {score}")
+
+    else:
+        print(f"Sorry, that's wrong. Final score: {score}.")
+        game_should_continue = False
+
+
+
